@@ -21,7 +21,7 @@ class asociadoAlLitoral{
 }
 
 class Libres{
-  const property uiversidad
+  const property universidad
   var property honorarios = 0
   var property puedeTrabajar()= []
 }
