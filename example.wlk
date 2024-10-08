@@ -1,9 +1,11 @@
-object pepita {
-  var energy = 100
+class Universidad{
+  const property provincia 
+  var property honorarios
+}
 
-  method energy() = energy
-
-  method fly(minutes) {
-    energy = energy - minutes * 3
+class AsociadosAUniversidad{
+  const property universidad
+  method honorarios(){
+    return universidad.honorarios()
   }
 }
