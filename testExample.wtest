@@ -2,16 +2,34 @@ import example.*
 
 describe "group of tests" {
   const unahur = new Universidad(provincia = "Bs As", honorarios = 15000)
-  const rosario = new Universidad(provincia ="Sta Fe", hnoraros=12000)
-  const asocAUni1 = new AsociadosAUniversidad (universidad= unahur)
-  const asocAUni2 = new AsociadosAUniversidad (universidad= rosario)
-  
+  const rosario = new Universidad(provincia ="Sta Fe", honorarios=12000)
+  const asocAUni1 = new AsociadoAUniversidad(universidad= unahur)
+  const asocAUni2 = new AsociadoAUniversidad(universidad= rosario)
+  const asocLitoral = new AsociadoAlLitoral(universidad = rosario)
+  const libre = new Libres(universidad = unahur, puedeTrabajar = ["Corrientes","Misiones"], honorarios = 12000)
+
+
   test "asociado a unahur" {
     assert.equals(15000, asocAUni1.honorarios())
+    assert.equals(["Bs As"], asocAUni1.puedeTrabajar())
   }
 
   test "asociado a rosario" {
     assert.equals(12000, asocAUni2.honorarios())
+    assert.equals(["Sta Fe"], asocAUni2.puedeTrabajar())
   }
+
+  test "asociado al litoral"{
+    assert.equals(unahur,asocLitoral.universidad())
+  }
+
+  test "libre"{
+    assert.equals(12000, libre.honorarios())
+    assert.equals(["Corrientes","Misiones"], libre.puedeTrabajar())
+  }
+
+// etapa 1
+
+
 
 }
