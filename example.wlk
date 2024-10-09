@@ -53,5 +53,35 @@ class Empresa{
   method esDeAcotados(){
     return profesionales.all( { p => p.puedeTrabajar().size() <= 3} )
   }
+
+  method puedeSatisfacer(unSolicitante){
+    return profesionales.any( { p => unSolicitante.puedeSerAtendidoPor(p) } )
+  }
 }
+
+class SolicitantePersona{
+  var property provincia
+
+  method puedeSerAtendidoPor(unProfesional){
+    return unProfesional.puedeTrabajar().contains(provincia)
+  }
+}
+
+class SolicitanteInstitucion{
+  var propery universidades
+
+  method puedeSerAtendidoPor(unProfesional){
+    return universidades.contains(unProfesional.universidad())
+  }
+
+class SolicitanteClub{
+  var property provincias
+
+  method puedeSerAtendidoPor(unProfesional){
+    return not provincias.asSet().intersection(unProfesional.puedeTrabajar().asSet()).isEmpty()
+  }  
+
+
+
+
 
